@@ -69,7 +69,6 @@ class WebAutomation:
         # Wait for the image to download
         time.sleep(2)
 
-
     def close(self):
         self.driver.quit()
 
