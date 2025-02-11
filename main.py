@@ -1,3 +1,4 @@
+import os
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -8,6 +9,13 @@ from selenium.webdriver.common.by import By
 # Define driver, options and service
 chrome_options = Options()
 chrome_options.add_argument('--disable-search-engine-choice-screen')
+
+# Select download directory
+download_path = os.getcwd()
+prefs = {'download.default_directory': download_path}
+chrome_options.add_experimental_option('prefs', prefs)
+
+# define driver
 service = Service('chromedriver-mac-arm64/chromedriver')
 driver = webdriver.Chrome(options=chrome_options, service=service)
 
